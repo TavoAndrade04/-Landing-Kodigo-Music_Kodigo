@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { FiHome, FiMusic } from 'react-icons/fi'
+import logo from '../assets/Logo-.png'
 
 function Navbar() {
   return (
@@ -7,7 +8,7 @@ function Navbar() {
       <div className="navbar-interior">
         <NavLink to="/" className="logo">
         <span className="logo-disco" aria-hidden="true"></span>
-        <img src="/public/Logo-.png" alt="" className="logo-img" />
+        <img src={logo} alt="Logo de Kodigo Music" className="logo-img" />
            Kodigo Music
           </NavLink>
        <nav>
