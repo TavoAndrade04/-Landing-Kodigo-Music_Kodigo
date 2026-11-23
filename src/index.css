@@ -1,0 +1,82 @@
+:root {
+  --fondo: #1a1030;
+  --superficie: #2a1b47;
+  --borde: #3d2a66;
+  --texto: #f6efff;
+  --suave: #b9a8d9;
+  --acento: #ff6b8b;
+  --error: #ffb4a8;
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+body {
+  font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; padding: 0; }
+h1 { font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.1; }
+h2 { font-size: 1.3rem; margin-bottom: 1rem; }
+
+:focus-visible { outline: 3px solid var(--acento); outline-offset: 2px; }
+
+.contenedor { max-width: 1050px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+
+/* navbar */
+.navbar { background: var(--superficie); border-bottom: 1px solid var(--borde); position: sticky; top: 0; z-index: 5; }
+.navbar-interior { max-width: 1050px; margin: 0 auto; padding: .8rem 1rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.logo { display: flex; align-items: center; gap: .6rem; font-weight: 800; font-size: 1.2rem; }
+.logo-img { width: 38px; height: 38px; object-fit: contain; }
+nav a { display: inline-flex; align-items: center; gap: .4rem; padding: .4rem .9rem; border-radius: 999px; color: var(--suave); font-weight: 600; }
+nav { display: flex; gap: .5rem; }
+nav a { padding: .4rem .9rem; border-radius: 999px; color: var(--suave); font-weight: 600; }
+nav a.active { background: var(--acento); color: var(--fondo); }
+
+/* inicio */
+.portada-inicio { padding: 2.5rem 0 3rem; max-width: 560px; }
+.portada-inicio p { color: var(--suave); margin: 1rem 0 1.5rem; font-size: 1.1rem; }
+
+/* botones */
+.btn { display: inline-block; background: var(--acento); color: var(--fondo); border: 0; padding: .75rem 1.4rem; border-radius: 999px; font: inherit; font-weight: 800; cursor: pointer; }
+.btn:hover { filter: brightness(1.1); }
+
+/* lista de canciones */
+.lista { display: flex; flex-direction: column; gap: .5rem; }
+.cancion { display: flex; align-items: center; gap: .8rem; background: var(--superficie); padding: .6rem .8rem; border-radius: 12px; }
+.portada { width: 46px; height: 46px; border-radius: 8px; display: grid; place-items: center; font-weight: 800; font-size: 1.2rem; flex-shrink: 0; }
+.cancion-info { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.cancion-info strong, .cancion-info span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cancion-info span, .duracion { color: var(--suave); font-size: .9rem; }
+.etiqueta { border: 1px solid var(--borde); border-radius: 999px; padding: .1rem .7rem; font-size: .8rem; color: var(--suave); }
+.btn-quitar { background: none; border: 0; color: var(--suave); cursor: pointer; font-size: 1rem; padding: .3rem .5rem; border-radius: 6px; }
+.btn-quitar:hover { color: var(--error); }
+
+/* biblioteca */
+.biblioteca { display: grid; grid-template-columns: 1fr 320px; gap: 2rem; align-items: start; }
+.encabezado-lista { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.encabezado-lista h1 { font-size: 2rem; }
+.encabezado-lista small { color: var(--suave); font-size: 1rem; font-weight: 400; }
+.buscador, .formulario input, .formulario select { width: 100%; background: var(--fondo); color: var(--texto); border: 1px solid var(--borde); border-radius: 8px; padding: .6rem .8rem; font: inherit; }
+.buscador { max-width: 260px; }
+
+/* formulario */
+.formulario { background: var(--superficie); padding: 1.3rem; border-radius: 16px; display: flex; flex-direction: column; gap: 1rem; position: sticky; top: 80px; }
+.formulario h2 { margin: 0; }
+.formulario label { display: flex; flex-direction: column; gap: .3rem; font-weight: 600; font-size: .95rem; }
+.error { color: var(--error); font-weight: 400; }
+.exito { color: #9fe8b5; }
+.vacio { color: var(--suave); padding: 1rem 0; }
+
+.pie { text-align: center; color: var(--suave); padding: 1.5rem; font-size: .85rem; border-top: 1px solid var(--borde); }
+
+/* celular */
+@media (max-width: 800px) {
+  .biblioteca { grid-template-columns: 1fr; }
+  .formulario { position: static; }
+  .buscador { max-width: none; }
+  .etiqueta { display: none; }
+}
